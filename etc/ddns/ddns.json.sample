@@ -1,0 +1,7 @@
+{
+    "web_faction_username" : "user",
+    "web_faction_password" : "password",
+    "web_faction_dns_override" : "home.domain.com",
+    "web_faction_ip_file" : "webapps/domain/current_ip.json",
+    "ethernet_interface" : "eth0"
+}
