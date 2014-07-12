@@ -49,8 +49,10 @@ print 'creating new dns entry'
 server.create_dns_override(session_id, config['web_faction_dns_override'], current_ip_address)
  
 if config['web_faction_ip_file']:
-    print 'writing current_ip.json'
-    data = json.dumps({'IP': current_ip_address, 'Date': datetime.now().isoformat()}, sort_keys=True, indent=4, separators=(',', ': '))
-    server.write_file(session_id, config['web_faction_ip_file'], data, 'w')
+    now = datetime.now()
+    filename = config['web_faction_ip_file'].format(now)
+    print 'writing {0}'.format(filename)
+    data = json.dumps({'IP': current_ip_address, 'Date': now.isoformat()}, sort_keys=True, indent=4, separators=(',', ': '))
+    server.write_file(session_id, filename, data, 'w')
 
 open(current_ip_file, 'w+').write(current_ip_address)
